@@ -1,0 +1,77 @@
+body {
+    font-family: Monospace;
+    background-color: #FFF;
+    color: #fff;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#info {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.progress-bar-container{
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 4s linear;
+    background-image: url(./loadscreen/image/RW_CC_region_art.png);
+    background-color: rgb(34, 10, 34);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#progress-bar{
+    width: 40%;
+    margin-top: 0.5%;
+    height: 0.5%;
+}
+
+label{
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    font-family: titleFont;
+    font-size: 10rem;
+    color:#e3ca78;
+}
+
+@font-face {
+    font-family: titleFont;
+    src: url(./loadscreen/font/Rodondo.otf); 
+}
+
+a {
+    color: #e3ca78;
+}
+
+.image-text{
+    background-image: url(./loadscreen/image/RW_CC_region_art.png);
+    background-size: cover;
+    background-clip: text;
+    color: transparent;
+}
+
+:root{
+    --progColor: linear-gradient(to right, #e3ca78, rgb(216, 107, 149));
+    --progHeight: 5px;
+}
+
+progress, progress::-webkit-progress-value {
+    width: 500px;
+    border: 0;
+    height: var(--progHeight);
+    border-radius: 15px;
+    background: var(--progColor);
+}

@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>Chimney Canopy</title>
+	<script type="importmap">
+		{
+			"imports": {
+				"three": "./build/three.module.js"
+			}
+		}
+	</script>	
+	<link type="text/css" rel="stylesheet" href="stylesheet.css">	
+  
+  <script id="vs" type="x-shader/x-vertex">
+    varying vec2 vuv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);}
+  </script>
+  <script id="fs" type="x-shader/x-fragment">
+    uniform sampler2D map; uniform vec3 fogColor; unifrom float fogNear; unifrom float fogFar; varying vec2 vUv; void main() {float depth = gl_FragCoord.w; float fogFactor = smoothstep( fogNear, fogFar, depth); gl_FragColor = texture2D(map, vUv); gl_Fragcolor.w *= pow( fl_FragCoord.z, 20.0); gl_FragColor = mix (gl_Fragcolor, vec4( fogColor, gl_FragColor.w), fogFactor );}
+  </script>
+  
+	<script type="module" src="Plant.js"></script>
+  </head>
+  <body>
+    <div class="progress-bar-container">
+        <label for="progress-bar">Chimney Canopy</label><br>
+        <progress id='progress-bar' color="aliceblue" value="0" max="100"></progress>	
+    </div>
+	  <link rel="shortcut icon" href="#">
+    <div id="info">
+      <p>This is a plant generation using Lindenmayer system<br>
+      use left button to rotate the scene, scroll to zoom in/out</p>
+    </div>	
+  </script>
+  </body>
+</html>
